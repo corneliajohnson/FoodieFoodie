@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  <title>Document</title>
+</head>
+<body>
+</script>
+<input id="search" ><button onclick="getrecepe(document.getElementById('search').value)">Search</button>
+<div id="output"></div>
+<a href="" id="sourceLink"></a>
+<script>
+
+function getsource(id){
+$.ajax({
+url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=db254b5cd61744d39a2deebd9c361444",
+success: function(res) {
+
+document.getElementById("sourceLink").innerHTML=res.sourceUrl
+document.getElementById("sourceLink").href=res.sourceUrl
+}
+});
+}
+function getrecepe(q){
+$.ajax({
+url:"https://api.spoonacular.com/recipes/search?apiKey=db254b5cd61744d39a2deebd9c361444&number=5&query="+q,
+success: function(res) {
+
+for(let i = 0; i < 5; i++){
+document.getElementById("output").innerHTML+="<h1>"+res.results[i].title+"</h1><br><img src='"+res.baseUri+res.results[i].image+"' width='400' /><br>Ready in "+res.results[i].readyInMinutes+" minutes"
+getsource(res.results[i].id)
+}
+}
+});
+}
+</script>
+</body>
+</html>
+
+<!-- https://www.w3schools.com/code/tryit.asp?filename=G7ZR02O81KBS -->
