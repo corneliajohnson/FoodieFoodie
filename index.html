@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <script src="app.js" defer></script> 
+  <!-- <script src="app.js" defer></script>  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,13 +21,13 @@
       <div id="alert"></div>
       <h1>Search For Recipe</h1>
       <p class="lead">What do you have a taste for?</p>
-      <input type="text" id="search" class="form-control" placeholder="I have a taste for...">
+      <input type="text" id="searchInput" class="form-control" placeholder="I have a taste for...">
       <div>
-        <button class="btn btn-primary btn-lg btn-block mt-2" onclick="getrecepe(document.getElementById('search').value)">Submit</button>
+        <button class="btn btn-primary btn-lg btn-block mt-2" id="searchBtn">Submit</button>
       </div>
     </div>
-    <div id="newCard">
-      <div id='ingredientList'></div>
+    <div id="recipeCard">
+      <!-- <div id='ingredientList'></div> -->
     </div>
   </div>
 
@@ -39,6 +39,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <!-- <script src="app.js"></script> -->
+  <script src="spoonacular.js"></script>
+  <script src="ui.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
