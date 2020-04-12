@@ -16,7 +16,7 @@
 
 function getsource(id){
 $.ajax({
-url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=db254b5cd61744d39a2deebd9c361444",
+url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=5b3ba4275d524c1cb67cd1fb269db0e9",
 success: function(res) {
 
 document.getElementById("sourceLink").innerHTML=res.sourceUrl
@@ -26,12 +26,12 @@ document.getElementById("sourceLink").href=res.sourceUrl
 }
 function getrecepe(q){
 $.ajax({
-url:"https://api.spoonacular.com/recipes/search?apiKey=db254b5cd61744d39a2deebd9c361444&number=5&query="+q,
+url:"https://api.spoonacular.com/recipes/search?apiKey=5b3ba4275d524c1cb67cd1fb269db0e9=5&query="+q,
 success: function(res) {
 
 for(let i = 0; i < 5; i++){
-document.getElementById("output").innerHTML+="<h1>"+res.results[i].title+"</h1><br><img src='"+res.baseUri+res.results[i].image+"' width='400' /><br>Ready in "+res.results[i].readyInMinutes+" minutes"
-getsource(res.results[i].id)
+document.getElementById("output").innerHTML+="<h1>"+res.results[i].title+"</h1><br><img src='"+res.baseUri+res.results[i].image+"' width='400' /><br>Ready in "+res.results[i].readyInMinutes+" minutes";
+//getsource(res.results[i].id)
 }
 }
 });
