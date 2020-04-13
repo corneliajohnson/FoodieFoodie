@@ -18,11 +18,14 @@ searchBtn.addEventListener('click', (e)=>{
         // Show Alert
       //} else {
         // Show Recipe
-        console.log(data.results[0].id)
+        const id = data.results[0].id
         ui.showRecipe(data.results[0]);
-        spoonacular.getDetails(data.results[0].id)
-        .then(info => {
-            ui.showIngredience(info.extendedIngredients.original);
+        spoonacular.getDetails(id)
+        .then(data => {
+            ui.showLink(data);
+            ui.showIngredients(data.extendedIngredients);
+            ui.showPrice(data);
+            ui.showDiets(data);
         })
      // }
     })
