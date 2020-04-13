@@ -2,7 +2,7 @@ class Spoonacular {
   constructor(){
     this.key = '5b3ba4275d524c1cb67cd1fb269db0e9';
     this.recipe_count = 5;
-    this.amount = 1;
+    this.amount = 2;
   }
 
   async getDetails(id){

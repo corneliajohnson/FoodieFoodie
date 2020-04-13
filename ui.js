@@ -4,17 +4,17 @@ class UI {
   }
 
   showRecipe(choice) {
-    console.log(choice);
-    this.recipeCard.innerHTML = `
-    <div class="card text-white bg-secondary mb-3 mt-3">
-    <div id="output" class="card-header text-light text-center"><h2>${choice.title}</h2></div>
+    //console.log(choice);
+    this.recipeCard.innerHTML += `
+    <div class="card bg-light mb-3 mt-3 newCard">
+    <div id="output" class="card-header text-center"><h2>${choice.title}</h2></div>
     <div class="card-body">
       <div class="row">
-        <div id='foodPic' class="col">
+        <div id='foodPic' class="col-md-6">
         <img class="card-img-top" src='https://spoonacular.com/recipeImages/${choice.image}' alt="Card image cap" />
         </div>
-        <div class="col">
-          <h5 class"text-primary">Ingredience</h5>
+        <div class="col-md-6">
+          <h4 class"text-info mt-3">Ingredience</h4>
           <ul id="ingredientList" style="list-style-type: none; margin: 0;padding: 0;">
           </ul>
           <h5 class="mt-3 text-info">More...</h5>
@@ -58,8 +58,7 @@ class UI {
 
   //Insert price serving to UI
   showPrice(id) {
-    document.getElementById("servingPrice").innerHTML =
-      "Price per Serving $" + (id.pricePerServing / 100).toFixed(2);
+    document.getElementById("servingPrice").innerHTML = "Price per Serving $" + (id.pricePerServing / 100).toFixed(2);
   }
 
   //Insert diets to UI
@@ -83,9 +82,9 @@ class UI {
       diets += `<img src="https://img.icons8.com/color/25/000000/leaf.png"/>`;
     }
     //Keto NEED TO FIND ICON
-    // if(id.ketogenic === true) {
-    //   diets += ``; 
-    // }
+    if(id.ketogenic) {
+      diets += `<span class="badge badge-light">Keto</span>`; 
+    }
 
     document.querySelector('.card-footer').innerHTML = diets;
     

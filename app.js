@@ -16,19 +16,22 @@ searchBtn.addEventListener('click', (e)=>{
     .then(data => {
       if(data.results[0] === undefined) {
         // Show Alert
-        ui.showAlert('User not found', 'alert alert-danger');
+        ui.showAlert('Recipe not found', 'alert alert-dismissible alert-primary');
         console.log('ERROR');
       } else {
         // Show Recipe
-        ui.showRecipe(data.results[0]);
-        const id = data.results[0].id
-        spoonacular.getDetails(id)
-        .then(data => {
-            ui.showLink(data);
-            ui.showIngredients(data.extendedIngredients);
-            ui.showPrice(data);
-            ui.showDiets(data);
-        });
+        for(let i = 0; i < 2; i++ ) {
+          ui.showRecipe(data.results[i]);
+          
+          let id = data.results[i].id;
+          spoonacular.getDetails(id)
+          .then(data => {
+              ui.showLink(data);
+              ui.showIngredients(data.extendedIngredients);
+              ui.showPrice(data);
+              ui.showDiets(data);
+          });
+        }
      }
     });
   } else {
