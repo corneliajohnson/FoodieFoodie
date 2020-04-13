@@ -4,6 +4,7 @@ class UI {
   }
 
   showRecipe(choice) {
+    console.log(choice);
     this.recipeCard.innerHTML = `
     <div class="card text-white bg-secondary mb-3 mt-3">
     <div id="output" class="card-header text-light text-center"><h2>${choice.title}</h2></div>
@@ -63,7 +64,6 @@ class UI {
 
   //Insert diets to UI
   showDiets(id) {
-    console.log(id);
     let diets = '';
 
     //Vegan
@@ -89,5 +89,41 @@ class UI {
 
     document.querySelector('.card-footer').innerHTML = diets;
     
+  }
+
+  //Clear Profile
+  showAlert(message, className){
+    //Clear ayny remaining alerts
+    this.clearAlert();
+    //Create alert
+    const alert = document.createElement('div');
+    //Add class name and message
+    alert.className = className;
+    //Add Text
+    alert.appendChild(document.createTextNode(message));
+    //Get Parent
+    const container = document.querySelector('.searchContainer');
+    const search = document.querySelector('.search');
+    //insert alert
+    container.insertBefore(alert, search);
+
+    //timeout after 3 secs
+    setTimeout(()=>{
+      this.clearAlert();
+    }, 3000);
+  }
+
+  //Clear alert message
+  clearAlert(){
+    const currentAlert = document.querySelector('.alert');
+
+    if(currentAlert){
+      currentAlert.remove();
+    }
+  }
+
+  //Show alert message
+  clearRecipe(){
+    this.profile.innerHTML = '';
   }
 }
