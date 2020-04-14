@@ -1,20 +1,11 @@
 class Spoonacular {
   constructor(){
-    this.key = '5b3ba4275d524c1cb67cd1fb269db0e9';
-    this.recipe_count = 5;
-    this.amount = 2;
-  }
-
-  async getDetails(id){
-  const detailResponce = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${this.key}`);
-  
-  const details = await detailResponce.json();
-  return details;
+    this.api_id = 'c5d07ea7';
+    this.api_key = '0906a6996cc319c5b07704f0e825834a';
   }
 
   async getRecipe(choice){
-    const recipeResponse = await fetch(`https://api.spoonacular.com/recipes/search?apiKey=${this.key}&number=${this.amount}&query=${choice}`);
-
+    const recipeResponse = await fetch(`https://api.edamam.com/search?q=${choice}&app_id=${this.api_id}&app_key=${this.api_key}&from=0&to=12`);
 
     const recipe = recipeResponse.json();
     return recipe;
