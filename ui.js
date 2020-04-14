@@ -6,7 +6,7 @@ class UI {
   showRecipe(choice) {
     //html for each recipe card
     this.recipeCard.innerHTML += `
-    <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+    <div class="col-md-6 col-lg-4 d-flex newCard">
     <div class="card bg-light mb-3 mt-3">
       <div class="card-body">
           <div id='foodPic'>
