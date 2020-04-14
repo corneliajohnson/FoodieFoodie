@@ -6,23 +6,25 @@ class UI {
   showRecipe(choice) {
     //html for each recipe card
     this.recipeCard.innerHTML += `
-    <div class="col-md-6 col-lg-4 d-flex newCard">
+    <div class="col-md-6 col-lg-4 d-flex">
     <div class="card bg-light mb-3 mt-3">
       <div class="card-body">
           <div id='foodPic'>
               <img class="card-img-top" src='${choice.recipe.image}' alt="Card image cap" />
               <h4 class="text-primary">${choice.recipe.label}</h4>
               <h6 class=""><b>Source:</b> ${choice.recipe.source}</h6><br>
-              <div class="btn-group btn-group-toggle align-self-end" data-toggle="buttons">
-                <label class="btn btn-info active">
-                  <input onclick="window.location.href='${choice.recipe.url}';" type="checkbox" autocomplete="off"> More Info
-                </label>
-                <label class="btn btn-info">
-                  <input type="checkbox" autocomplete="off"> Buy It
-                </label>
-              </div>
+
             </div>
           </div>
+          <footer class="footer">              
+          <div class="btn-group btn-group-toggle align-self-end m-3" data-toggle="buttons">
+          <label class="btn btn-info active">
+            <input onclick="window.location.href='${choice.recipe.url}';" type="checkbox" autocomplete="off"> More Info
+          </label>
+          <label class="btn btn-info">
+            <input type="checkbox" autocomplete="off"> Buy It
+          </label>
+        </div></footer>
         </div>
       </div>
     </div>
