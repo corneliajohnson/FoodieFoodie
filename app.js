@@ -49,27 +49,3 @@ const searchInput = document.getElementById('searchInput');
     }
   });
 
-
-//Nav Bar Functionality
-function openNav() {
-  document.getElementById("mySidenav").style.width = "30%";
-  document.getElementById("main").style.marginLeft = "30%";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-  document.body.style.backgroundColor = "white";
-}
-
-
-//Loading
-// function work() { /*...*/ }
-
-// if (document.readyState == 'loading') {
-//   // loading yet, wait for the event
-//   document.addEventListener('DOMContentLoaded', work);
-// } else {
-//   // DOM is ready!
-//   work();
-// }
