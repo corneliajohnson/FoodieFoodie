@@ -14,7 +14,9 @@ class UI {
           <div id='foodPic'>
               <img class="card-img-top" src='${choice.recipe.image}' alt="Card image cap" />
               <h4 class="text-primary">${choice.recipe.label}</h4>
-              <h6 class=""><b>Source:</b> ${choice.recipe.source}</h6><br>
+              <h6 class=""><b>Source:</b> ${choice.recipe.source}</h6>
+              <a class="text-warning empty-heart"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+              <br>
             </div>
           </div>
           <footer class="footer d-flex justify-content-between p-4">              
