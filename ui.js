@@ -27,7 +27,7 @@ class UI {
           </label>
         </div>
         <!-- Small modal -->
-          <a class="text-primary" data-toggle="modal" data-target=".bd-example1-modal${num}-sm"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+          <a class="text-primary" data-toggle="modal" data-target="#modal${num}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
         </footer>
         </div>
       </div>
@@ -36,18 +36,26 @@ class UI {
     `;
   }
 
+  //Show ingredience in modal
   showIngredience(choice, num) {
     let output = "";
     for (let i = 0; i < choice.recipe.ingredients.length; i++) {
       output += `<li>${choice.recipe.ingredients[i].text}</li>`;
     }
     this.modals.innerHTML += `
-    <div class="modal fade bd-example1-modal${num}-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal" id="modal${num}">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
-      <h4 class="text-primary">${choice.recipe.label}</h4>
-        <h5>Ingredence</h5>
+        <div class="modal-header">
+        <h4>${choice.recipe.label}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <h4 class="text-primary">Ingredience</h4>
         <ul id="ingredienceList">${output}</ul>
+        </div>
       </div>
     </div>
   </div>`;

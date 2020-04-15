@@ -12,7 +12,8 @@ window.addEventListener("load", (e)=>{
     .then(data => {
       //show 12 cards
       for(let i = 0; i < 12; i++) {
-        ui.showRecipe(data.hits[i]); 
+        ui.showRecipe(data.hits[i], i); 
+        ui.showIngredience(data.hits[i], i);
       }
     });
   }
