@@ -1,9 +1,11 @@
 class UI {
   constructor() {
     this.recipeCard = document.getElementById("recipeCard");
+    this.modals = document.getElementById("modals");
   }
 
-  showRecipe(choice) {
+  showRecipe(choice, num) {
+    //console.log(num);
     //html for each recipe card
     this.recipeCard.innerHTML += `
     <div class="col-md-6 col-lg-4 d-flex">
@@ -13,18 +15,20 @@ class UI {
               <img class="card-img-top" src='${choice.recipe.image}' alt="Card image cap" />
               <h4 class="text-primary">${choice.recipe.label}</h4>
               <h6 class=""><b>Source:</b> ${choice.recipe.source}</h6><br>
-
             </div>
           </div>
-          <footer class="footer">              
-          <div class="btn-group btn-group-toggle align-self-end m-3" data-toggle="buttons">
+          <footer class="footer d-flex justify-content-between p-4">              
+          <div class="btn-group btn-group-toggle align-self-end" data-toggle="buttons">
           <label class="btn btn-info active">
-            <input onclick="window.location.href='${choice.recipe.url}';" type="checkbox" autocomplete="off"> More Info
+            <input onclick="window.location.href='${choice.recipe.url}';" type="checkbox" autocomplete="off"> Recipe
           </label>
           <label class="btn btn-info">
             <input type="checkbox" autocomplete="off"> Buy It
           </label>
-        </div></footer>
+        </div>
+        <!-- Small modal -->
+          <a class="text-primary" data-toggle="modal" data-target=".bd-example1-modal${num}-sm"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+        </footer>
         </div>
       </div>
     </div>
@@ -32,39 +36,65 @@ class UI {
     `;
   }
 
+  showIngredience(choice, num) {
+    let output = "";
+    for (let i = 0; i < choice.recipe.ingredients.length; i++) {
+      output += `<li>${choice.recipe.ingredients[i].text}</li>`;
+    }
+    this.modals.innerHTML += `
+    <div class="modal fade bd-example1-modal${num}-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+      <h4 class="text-primary">${choice.recipe.label}</h4>
+        <h5>Ingredence</h5>
+        <ul id="ingredienceList">${output}</ul>
+      </div>
+    </div>
+  </div>`;
+  }
+
   //Clear Profile
-  showAlert(message, className){
+  showAlert(message, className) {
     //Clear ayny remaining alerts
     this.clearAlert();
     //Create alert
-    const alert = document.createElement('div');
+    const alert = document.createElement("div");
     //Add class name and message
     alert.className = className;
     //Add Text
     alert.appendChild(document.createTextNode(message));
     //Get Parent
-    const container = document.querySelector('.searchContainer');
-    const search = document.querySelector('.search');
+    const container = document.querySelector(".searchContainer");
+    const search = document.querySelector(".search");
     //insert alert
     container.insertBefore(alert, search);
 
     //timeout after 3 secs
-    setTimeout(()=>{
+    setTimeout(() => {
       this.clearAlert();
     }, 3000);
   }
 
   // //Clear alert message
-  clearAlert(){
-    const currentAlert = document.querySelector('.alert');
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
 
-    if(currentAlert){
+    if (currentAlert) {
       currentAlert.remove();
     }
   }
 
   //Clear Recipe
-  clearRecipe(){
-    this.recipeCard.innerHTML = '';
+  clearRecipe() {
+    this.recipeCard.innerHTML = "";
   }
-}//END CLASS
+
+  // showIngredience(choice){
+  //   let  output  = '';
+  //   for(let i = 0; i < choice.recipe.ingredients.length; i++) {
+  //     output += `<li>${choice.recipe.ingredients[i].text}</li>`;
+  //     //console.log(choice.recipe.ingredients[i].text);
+  //   }
+  //   console.log(output);
+  // };
+} //END CLASS

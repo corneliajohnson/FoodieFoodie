@@ -37,9 +37,11 @@ const searchInput = document.getElementById('searchInput');
         } else {
           //clear profile before loading new search
           ui.clearRecipe();
+
           //show 12 recipes
-          for(let i = 0; i < 12; i++) {
-            ui.showRecipe(data.hits[i]); 
+         for(let i = 0; i < 12; i++) {
+            ui.showRecipe(data.hits[i], i); 
+            ui.showIngredience(data.hits[i], i);
           }
         }
       });
