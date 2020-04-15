@@ -12,9 +12,30 @@
   <title>Recipe Finder</title>
 </head>
 <body>
-  <nav class="navbar navbar-dark bg-dark mb-3">
-    <div class="conatiner">
+  <nav class="navbar navbar-dark bg-dark mb-3 d-flex justify-content-between">
+    <div class="conatiner pl-3 pr-5">
       <a href="#"class="navbar-brand">Foodie Foodie</a>
+    </div>
+
+  <div class="dropleft">
+    <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-list" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-menu p-4 margin-3" aria-labelledby="dropdownMenu2">
+        <h4>Recipe List</h4>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Default checkbox
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+          <label class="form-check-label" for="defaultCheck2">
+            Disabled checkbox
+          </label>
+        </div>
+      </div>
     </div>
 
   </nav>
@@ -35,6 +56,10 @@
   </div>
 
   <div id="modals"></div>
+
+  <!-- <div id="mybutton">
+  <div class="feedback"><i class="fa fa-list" aria-hidden="true"></i></div>
+    </div> -->
 
   <br><br>
   <footer class="mt-5 fixed-bottom p-3 text-center bg-light">

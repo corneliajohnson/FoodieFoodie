@@ -23,7 +23,7 @@ class UI {
             <input onclick="window.location.href='${choice.recipe.url}';" type="checkbox" autocomplete="off"> Recipe
           </label>
           <label class="btn btn-info">
-            <input type="checkbox" autocomplete="off"> Buy It
+            <input type="checkbox" autocomplete="off" onclick="window.location.href='https://delivery.publix.com/';"> Buy It
           </label>
         </div>
         <!-- Small modal -->
