@@ -49,6 +49,9 @@ const searchInput = document.getElementById('searchInput');
     }
   });
 
+
+
+  
   //Favorites Action
   function myFunction(event) { 
     if(event.target.nodeName == 'I'){
