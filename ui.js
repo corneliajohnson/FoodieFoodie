@@ -102,16 +102,9 @@ class UI {
   clearRecipe() {
     this.recipeCard.innerHTML = "";
   }
+
+    //Clear Modals
+    clearModal() {
+      this.modals.innerHTML = "";
+    }
 } //END CLASS
-
-//Nav Bar Functionality
-function openNav() {
-  document.getElementById("mySidenav").style.width = "30%";
-  document.getElementById("main").style.marginLeft = "30%";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-  document.body.style.backgroundColor = "white";
-}

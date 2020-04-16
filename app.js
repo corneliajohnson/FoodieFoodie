@@ -38,7 +38,7 @@ const searchInput = document.getElementById('searchInput');
         } else {
           //clear profile before loading new search
           ui.clearRecipe();
-
+          ui.clearModal();
           //show 12 recipes
          for(let i = 0; i < 12; i++) {
             ui.showRecipe(data.hits[i], i); 
