@@ -49,3 +49,15 @@ const searchInput = document.getElementById('searchInput');
     }
   });
 
+  //Favorites Action
+  function myFunction(event) { 
+    if(event.target.nodeName == 'I'){
+      //Add to Favorites
+      if(event.target.classList.contains('fa-heart-o')){
+        event.target.classList.replace('fa-heart-o', 'fa-heart');
+      //Remove From Favorites
+      } else if (event.target.classList.contains('fa-heart')){
+        event.target.classList.replace('fa-heart', 'fa-heart-o');
+      }
+    }
+  }

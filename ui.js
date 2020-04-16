@@ -14,7 +14,8 @@ class UI {
           <div id='foodPic'>
               <img class="card-img-top" src='${choice.recipe.image}' alt="Card image cap" />
               <h4 class="text-primary">${choice.recipe.label}</h4>
-              <h6 class=""><b>Source:</b> ${choice.recipe.source}</h6>
+              <h6><b>Source:</b> ${choice.recipe.source}</h6>
+              <a><i class="fa fa-heart-o"></i></a>
               <br>
             </div>
           </div>
@@ -36,7 +37,7 @@ class UI {
       </div>
     </div>
   </div>
-    `;
+    `;  
 }
 
   //Show ingredience in modal
