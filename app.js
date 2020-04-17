@@ -64,6 +64,17 @@ const searchInput = document.getElementById('searchInput');
             ui.addFavorite(data.hits[i]);
           }
         }
+        //Remove Favorite
+      } else if (event.target.nodeName == 'I' && event.target.classList.contains('fa-heart')){
+        event.target.classList.remove('fa-heart');
+        event.target.classList.add('fa-heart-o');
+        
+        //check current target to card
+        for(let i = 0; i < 12; i++){
+          if(event.target.parentElement.classList.value == 'fav' + i){
+            ui.removeFavorite(data.hits[i]);
+          }
+        }
       }
     });
   }

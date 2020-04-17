@@ -107,6 +107,13 @@ class UI {
     console.log(this.favoritesArray);
   }
 
+  //Remove Favorite
+  removeFavorite(choice){
+    let index = this.favoritesArray.indexOf(choice.recipe.label);
+    if (index !== -1) this.favoritesArray.splice(index, 1);
+  }
+
+
   //Clear Recipe
   clearRecipe() {
     this.recipeCard.innerHTML = "";
