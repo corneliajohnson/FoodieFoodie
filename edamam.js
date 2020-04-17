@@ -1,4 +1,4 @@
-class Spoonacular {
+class Edamam {
   constructor(){
     this.api_id = 'c5d07ea7';
     this.api_key = '0906a6996cc319c5b07704f0e825834a';

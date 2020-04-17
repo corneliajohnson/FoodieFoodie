@@ -1,5 +1,5 @@
-//Unit Spoonacular class
-const spoonacular = new Spoonacular;
+//Unit Edamam class
+const edamam = new Edamam;
 
 //Init UI class
 const ui = new UI;
@@ -8,7 +8,7 @@ const ui = new UI;
 window.addEventListener("load", (e)=>{
   if(searchInput !== '') {
     //use default on page load
-    spoonacular.getRecipe()
+    edamam.getRecipe()
     .then(data => {
       //show 12 cards
       for(let i = 0; i < 12; i++) {
@@ -30,7 +30,7 @@ const searchInput = document.getElementById('searchInput');
 
     if (userText !== '') {
       //Make Http Call
-      spoonacular.getRecipe(userText)
+      edamam.getRecipe(userText)
       .then(data => {
         if(data.hits[0] === undefined) {
           // Show Alert
@@ -49,9 +49,10 @@ const searchInput = document.getElementById('searchInput');
     }
   });
 
+
   //Favorites Action
   function emptyToFull(event){
-    spoonacular.getRecipe()
+    edamam.getRecipe()
     .then(data => {
       //Add Favorite
       if(event.target.nodeName == 'I' && event.target.classList.contains('fa-heart-o')){
@@ -68,7 +69,7 @@ const searchInput = document.getElementById('searchInput');
       } else if (event.target.nodeName == 'I' && event.target.classList.contains('fa-heart')){
         event.target.classList.remove('fa-heart');
         event.target.classList.add('fa-heart-o');
-        
+
         //check current target to card
         for(let i = 0; i < 12; i++){
           if(event.target.parentElement.classList.value == 'fav' + i){
