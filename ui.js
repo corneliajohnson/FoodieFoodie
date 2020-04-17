@@ -2,10 +2,11 @@ class UI {
   constructor() {
     this.recipeCard = document.getElementById("recipeCard");
     this.modals = document.getElementById("modals");
+    this.favoriteList = document.getElementById('favoriteList');
+    this.favoritesArray = [];
   }
 
   showRecipe(choice, num) {
-    //console.log(num);
     //html for each recipe card
     this.recipeCard.innerHTML += `
     <div class="col-md-6 col-lg-4 d-flex">
@@ -15,7 +16,7 @@ class UI {
               <img class="card-img-top" src='${choice.recipe.image}' alt="Card image cap" />
               <h4 class="text-primary">${choice.recipe.label}</h4>
               <h6><b>Source:</b> ${choice.recipe.source}</h6>
-              <a><i class="fa fa-heart-o"></i></a>
+              <a class ="fav${num}"><i class="fa fa-heart-o"></i></a>
               <br>
             </div>
           </div>
@@ -98,6 +99,12 @@ class UI {
     if (currentAlert) {
       currentAlert.remove();
     }
+  }
+
+  //Add Favorite
+  addFavorite(choice) {
+    this.favoritesArray.push(choice.recipe.label);
+    console.log(this.favoritesArray);
   }
 
   //Clear Recipe
