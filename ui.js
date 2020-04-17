@@ -4,6 +4,7 @@ class UI {
     this.modals = document.getElementById("modals");
     this.favoriteList = document.getElementById('favoriteList');
     this.favoritesArray = [];
+    this.modalFavorite = document.querySelector('.modal-favorite-content');
   }
 
   showRecipe(choice, num) {
@@ -104,13 +105,14 @@ class UI {
   //Add Favorite
   addFavorite(choice) {
     this.favoritesArray.push(choice.recipe.label);
-    console.log(this.favoritesArray);
+     this.modalFavorite.innerHTML= this.favoritesArray;
   }
 
   //Remove Favorite
   removeFavorite(choice){
     let index = this.favoritesArray.indexOf(choice.recipe.label);
     if (index !== -1) this.favoritesArray.splice(index, 1);
+    this.modalFavorite.innerHTML= this.favoritesArray;
   }
 
 

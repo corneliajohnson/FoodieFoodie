@@ -14,8 +14,10 @@
 <body>
   <nav class="navbar navbar-dark bg-dark mb-3 d-flex justify-content-between">
     <div class="conatiner pl-3 pr-5">
-      <a href="#"class="navbar-brand">Foodie Foodie</a>
+        <a href="#"class="navbar-brand">Foodie Foodie</a>
     </div>
+    <!-- favorites modal  trigger-->
+      <a class="text-primary text-warning" data-toggle="modal" data-target="#modalFavorite"><i class="fa fa-heart" aria-hidden="true"></i></a>
   </nav>
   <div class="container searchContainer">
     <div class="search card card-body">
@@ -30,7 +32,6 @@
       <div class="row">
         <div id="recipeCard" class="row mx-auto"  onclick="emptyToFull(event)"></div>
       </div>
-      <div id="favoriteList">Favorites</div>
     </div>
   </div>
 
@@ -40,6 +41,16 @@
   <footer class="mt-5 fixed-bottom p-3 text-center bg-light">
     Foodie Foodie &copy;
   </footer>
+
+  <!--Favorites Modal -->
+  <div class="modal fade" id="modalFavorite" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content modal-favorite-content">
+
+        ...
+      </div>
+    </div>
+  </div>
 
   
 
