@@ -2,9 +2,9 @@ class UI {
   constructor() {
     this.recipeCard = document.getElementById("recipeCard");
     this.modals = document.getElementById("modals");
-    this.favoriteList = document.getElementById('favoriteList');
+    this.favoriteList = document.getElementById("favoriteList");
     this.favoritesArray = [];
-    this.modalFavorite = document.querySelector('.modal-favorite-content');
+    this.modalFavorite = document.querySelector(".modal-favorite-content");
   }
 
   showRecipe(choice, num) {
@@ -17,7 +17,6 @@ class UI {
               <img class="card-img-top" src='${choice.recipe.image}' alt="Card image cap" />
               <h4 class="text-primary">${choice.recipe.label}</h4>
               <h6><b>Source:</b> ${choice.recipe.source}</h6>
-              <a class ="fav${num}"><i class="fa fa-heart-o"></i></a>
               <br>
             </div>
           </div>
@@ -39,8 +38,8 @@ class UI {
       </div>
     </div>
   </div>
-    `;  
-}
+    `;
+  }
 
   //Show ingredience in modal
   showIngredience(choice, num) {
@@ -63,7 +62,7 @@ class UI {
         <ul id="ingredienceList">${output}</ul>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Favorite</button>
+      
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
       </div>
@@ -103,26 +102,25 @@ class UI {
   }
 
   //Add Favorite
-  addFavorite(choice) {
-    this.favoritesArray.push(choice.recipe.label);
-     this.modalFavorite.innerHTML= this.favoritesArray;
-  }
+  // addFavorite(choice) {
+  //   this.favoritesArray.push(choice.recipe.label);
+  //   this.modalFavorite.innerHTML = this.favoritesArray;
+  // }
 
   //Remove Favorite
-  removeFavorite(choice){
-    let index = this.favoritesArray.indexOf(choice.recipe.label);
-    if (index !== -1) this.favoritesArray.splice(index, 1);
-    this.modalFavorite.innerHTML= this.favoritesArray;
-  }
-
+  // removeFavorite(choice) {
+  //   let index = this.favoritesArray.indexOf(choice.recipe.label);
+  //   if (index !== -1) this.favoritesArray.splice(index, 1);
+  //   this.modalFavorite.innerHTML = this.favoritesArray;
+  // }
 
   //Clear Recipe
   clearRecipe() {
     this.recipeCard.innerHTML = "";
   }
 
-    //Clear Modals
-    clearModal() {
-      this.modals.innerHTML = "";
-    }
+  //Clear Modals
+  clearModal() {
+    this.modals.innerHTML = "";
+  }
 } //END CLASS
